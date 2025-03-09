@@ -18,7 +18,15 @@
 
     <p>Task : {{task}}</p>
 
-    <p>Is completed? - {{task.completed}}</p>
+    {% comment %} <p>Is completed? - {{task.completed}}</p> {% endcomment %}
+
+    {% if task.completed == True %}
+    
+        <p>Task completed? Yes</p>
+
+    {% else %}
+        <p>Task completed? No</p>
+    {% endif %}
 
     <p>Created : {{task.created}}</p>
 
