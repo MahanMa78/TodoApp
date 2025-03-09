@@ -14,6 +14,8 @@
 
 {% for task in tasks %}
 
+    <a href="{% url "update-task" task.id %}"> Update </a>
+
     <p>Task : {{task}}</p>
 
     <p>Is completed? - {{task.completed}}</p>
