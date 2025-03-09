@@ -22,6 +22,7 @@
 
     <p>Created : {{task.created}}</p>
 
+    <a href="{% url "delete-task" task.id %}"> Delete </a>
     <p>-------------</p>
 
 {% endfor %}
