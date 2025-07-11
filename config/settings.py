@@ -41,9 +41,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+
+    #third party
+     'rest_framework',
+    
     # 'installed apps'
     'tasks',
+    'apis',
 ]
+
+REST_FRAMEWORK = {
+ "DEFAULT_PERMISSION_CLASSES": [
+ "rest_framework.permissions.AllowAny",
+ ],
+ }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
