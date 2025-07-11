@@ -6,6 +6,7 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = (
             'id',
+            'author',
             'title',
             'body',
             'completed',
