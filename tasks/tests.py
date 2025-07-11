@@ -1,11 +1,13 @@
 from django.test import TestCase
 from .models import Task
+from accounts.models import CustomUser
 
 
 class TaskModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.task = Task.objects.create(
+            author = CustomUser.objects.create_user(username='mahan', password='password'),
             title = "First task",
             body = "A body of text here",
         )
