@@ -1,9 +1,11 @@
 from rest_framework import generics , permissions
 from tasks.models import Task
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer , UserSerializer
+from django.contrib.auth import get_user_model 
 
 from .permissions import IsAuthorOrReadOnly
 
+#* yadam bashe baadan baraash tarif konam ke faghat task haie ke on shakhs neveshte ro namayesh bede
 class ListTask(generics.ListCreateAPIView): # * az ListAPIView be ListCreateAPIView taghir midahim baraye inke ghabeliat hay read-write ro dashte bashim
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Task.objects.all()
@@ -15,3 +17,11 @@ class DetailTask(generics.RetrieveUpdateDestroyAPIView): # * az RetrieveAPIView 
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
+class UserList(generics.ListCreateAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
+    
+    
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
