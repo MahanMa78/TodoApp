@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     #third party
     'rest_framework',
     "corsheaders", 
+    'drf_yasg',
+    
     
     # 'installed apps'
     'accounts',
@@ -54,10 +56,28 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+    
+    # "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", 
+    
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    
+    
+    
 }
+
+
+# SWAGGER_SETTINGS = {
+#     'SECURITY_DEFINITIONS': {
+#         'Bearer': {
+#             'type': 'apiKey',
+#             'name': 'Authorization',
+#             'in': 'header'
+#         }
+#     },
+#     'USE_SESSION_AUTH': False,
+# }
 
 
 MIDDLEWARE = [
